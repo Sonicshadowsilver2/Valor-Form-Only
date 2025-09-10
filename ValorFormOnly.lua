@@ -7,11 +7,12 @@ end
 
 function GetVersion() --Define anchor addresses
   if GAME_ID == 0x431219CC and ENGINE_TYPE == 'BACKEND' then --PC
-    if ReadString(0x09A92F0,4) == 'KH2J' then --EGS
+    if ReadString(0x09A92F0,4) == 'KH2J' then --EGS v1.0.0.10
 			GameVersion = 2
 			print('EGS v1.0.0.9 Detected - ValorFormOnly')
 			Now  = 0x0716DF8
 			Save = 0x09A92F0
+			CutLen = 0x0B649F4
 			UCM = 0x2A71998
 			Obj0 = 0x2A24A70
 			canExecute = true
@@ -20,6 +21,7 @@ function GetVersion() --Define anchor addresses
 			print('EGS v1.0.0.10 Detected - ValorFormOnly')
 			Now  = 0x0716DF8
 			Save = 0x09A9330
+			CutLen = 0x0B64A34
 			UCM = 0x2A719D8
 			Obj0 = 0x2A24AB0
 			canExecute = true
@@ -28,6 +30,7 @@ function GetVersion() --Define anchor addresses
 			print('Steam GL v1.0.0.1 Detected - ValorFormOnly')
 			Now  = 0x0717008
 			Save = 0x09A9830
+			CutLen = 0x0B64F34
 			UCM = 0x2A71ED8
 			Obj0 = 0x2A24FB0
 			canExecute = true
@@ -36,6 +39,7 @@ function GetVersion() --Define anchor addresses
 			print('Steam JP v1.0.0.1 Detected - ValorFormOnly')
 			Now  = 0x0716008
 			Save = 0x09A8830
+			CutLen = 0x0B63F34
 			UCM = 0x2A70ED8
 			Obj0 = 0x2A23FB0
 			canExecute = true
@@ -44,6 +48,7 @@ function GetVersion() --Define anchor addresses
 			print('Steam v1.0.0.2 Detected - ValorFormOnly')
 			Now  = 0x0717008
 			Save = 0x09A98B0
+			CutLen = 0x0B64FB4
 			UCM = 0x2A71F58
 			Obj0 = 0x2A25030
 			canExecute = true
@@ -73,6 +78,9 @@ function _OnFrame()
 			end
 			if ReadByte(Now+0x08) == 0x87 then --Valor Form Keyblade after Axel II
 				WriteShort(Save+0x32F4, 0x01E0)
+			end
+			if ReadByte(Now+0x01) == 0x1C and ReadShort(CutLen+0x00) == 0x10FF and ReadByte(Save+0x1CEA) == 0x05 then
+				WriteByte(Save+0x1CE5, 0x03)
 			end
 		end
 		if ReadByte(Now+0x00) == 0x0A then --Pride Lands
