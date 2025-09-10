@@ -70,6 +70,11 @@ function _OnFrame()
 			else
 				WriteShort(UCM+0x009C, 0x0055) --Roxas -> Valor Form
 			end
+			if ReadByte(Now+0x08) ~= 0x89 then --Axel II
+				WriteShort(UCM+0x009C, 0x01E0) --Oathkeeper -> Star Seeker
+			else
+				WriteShort(UCM+0x009C, 0x002A) --Oathkeeper -> Oathkeeper
+			end
 		end
 		if ReadByte(Now+0x00) == 0x0A then --Pride Lands
 			if ReadByte(Now+0x01) == 0x0F then --Groundshaker
