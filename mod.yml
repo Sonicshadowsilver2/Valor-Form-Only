@@ -1,0 +1,39 @@
+title: Valor Form Only
+description: Changes all instances of Sora and Roxas into Valor Form.
+assets:
+#Lua Script
+- name: scripts/ValorFormOnly.lua
+  method: copy
+  source:
+  - name: ValorFormOnly.lua
+#ARD Editing
+- method: binarc
+  name: ard/tt07.ard #Market Street: Tram Common Cutscenes
+  multi:
+  - name: ard/jp/tt07.ard
+  - name: ard/us/tt07.ard
+  - name: ard/fr/tt07.ard
+  - name: ard/gr/tt07.ard
+  - name: ard/it/tt07.ard
+  - name: ard/sp/tt07.ard
+  source:
+  - method: areadatascript
+    name: evt
+    source:
+    - name: ard/tt07evt.yml
+    type: AreaDataScript
+- method: binarc
+  name: ard/tt28.ard #Tower: Wardrobe Cutscenes
+  multi:
+  - name: ard/jp/tt28.ard
+  - name: ard/us/tt28.ard
+  - name: ard/fr/tt28.ard
+  - name: ard/gr/tt28.ard
+  - name: ard/it/tt28.ard
+  - name: ard/sp/tt28.ard
+  source:
+  - method: areadatascript
+    name: evt
+    source:
+    - name: ard/tt28evt.yml
+    type: AreaDataScript
