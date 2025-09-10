@@ -64,7 +64,6 @@ function _OnFrame()
 			WriteShort(UCM+0x009C, 0x0055) --Roxas
 			WriteByte(Save+0x1CD9, 0x02) --Enable Square Button actions
 			WriteByte(Save+0x1CE5, 0x04) --Show Form Gauge
-			WriteShort(Save+0x32F4, 0x01E0) --Equip Valor Form's Keyblade
 			WriteString(Obj0+0x154D0,'F_TT010_SORA.mset\0')
 		end
 		if ReadByte(UCM+0x00) == 0x54 then
