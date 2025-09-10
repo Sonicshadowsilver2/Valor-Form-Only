@@ -61,10 +61,25 @@ function _OnFrame()
 	
 	if canExecute == true then
 		if ReadShort(Now+0x00) == 0x0102 and ReadByte(Now+0x08) == 0x34 then --New Game
-			WriteShort(UCM+0x009C, 0x0055) --Roxas
+			WriteShort(UCM+0x009C, 0x0055) --Roxas -> Valor Form
 			WriteByte(Save+0x1CD9, 0x02) --Enable Square Button actions
 			WriteByte(Save+0x1CE5, 0x04) --Show Form Gauge
-			WriteString(Obj0+0x154D0,'F_TT010_SORA.mset\0')
+		end
+		if ReadShort(Now+0x00) == 0x2202 and ReadByte(Now+0x08) == 0x9D then --Twilight Thorn
+			WriteShort(UCM+0x009C, 0x0323) --Valor Form -> Roxas (Dual-Wielded)
+		end
+		if ReadShort(Now+0x00) == 0x0002 and ReadByte(Now+0x08) == 0x33 then --Post Twilight Thorn
+			WriteShort(UCM+0x009C, 0x0055) --Roxas (Dual-Wielded) -> Valor Form
+		end
+		if ReadShort(Now+0x00) == 0x0002 and ReadByte(Now+0x08) == 0x33 then --Twilight Thorn
+			WriteShort(UCM+0x009C, 0x0055) --Roxas (Dual-Wielded) -> Valor Form
+		end
+		if ReadByte(Now+0x00) == 0x0A then --Pride Lands
+			if ReadByte(Now+0x01) == 0x0F then --Groundshaker
+				WriteShort(UCM+0x06E8, 0x028A) --Valor Form -> Lion Sora
+			else
+				WriteShort(UCM+0x06E8, 0x0055) --Lion Sora -> Valor Form
+			end
 		end
 		if ReadByte(UCM+0x00) == 0x54 then
 			WriteShort(UCM+0x0000, 0x0055) --Sora (Normal)
@@ -74,6 +89,7 @@ function _OnFrame()
 			WriteShort(UCM+0x0478, 0x0956) --Sora (Christmas Town)
 			WriteShort(UCM+0x0680, 0x0669) --Sora (Space Paranoids)
 			WriteShort(UCM+0x06B4, 0x066A) --Sora (Timeless River)
+			WriteString(Obj0+0x154D0,'F_TT010_SORA.mset\0') --Skateboard (Roxas)
 		end
 	end
 end
