@@ -1,5 +1,5 @@
 title: Valor Form Only
-description: Changes all instances of Sora and Roxas into Valor Form.
+description: Changes all instances of Sora and Roxas into Valor Form. This is not compatible with GoA ROM Edition.
 assets:
 #Lua Script
 - name: scripts/ValorFormOnly.lua
