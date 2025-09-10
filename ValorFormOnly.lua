@@ -65,10 +65,10 @@ function _OnFrame()
 			WriteByte(Save+0x1CE5, 0x04) --Show Form Gauge
 		end
 		if ReadByte(Now+0x00) == 0x02 then --Twilight Town
-			if ReadByte(Now+0x01) == 0x22 then --Twilight Thorn
+			if ReadByte(Now+0x08) == 0x9D or ReadByte(Now+0x08) == 0x78 then
 				WriteShort(UCM+0x009C, 0x0323) --Roxas -> Roxas (Dual-Wielded)
 			else
-				WriteShort(UCM+0x009C, 0x0055) --Roxas -> Valor
+				WriteShort(UCM+0x009C, 0x0055) --Roxas -> Valor Form
 			end
 		end
 		if ReadByte(Now+0x00) == 0x0A then --Pride Lands
