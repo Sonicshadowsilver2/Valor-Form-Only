@@ -114,7 +114,6 @@ function _OnFrame()
 			WriteString(Obj0+0x0C8F0,'P_EX100_BTLF.mset\0') --Sora (Hunny Slider) MSET -> Valor Form MSET
 			WriteString(Obj0+0x12690,'P_EX100_BTLF\0\0\0\0\0') --Sora (On Carpet) Model -> Valor Form Model
 			WriteString(Obj0+0x154D0,'F_TT010_SORA.mset\0') --Skateboard (Roxas) MSET -> Skateboard (Sora) MSET
-			WriteString(Obj0+0x22E90,'P_EX100_BTLF\0\0\0') --Sora (Light Cycle) Model -> Valor Form Model
 		end
 	end
 end
